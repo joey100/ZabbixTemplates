@@ -33,7 +33,7 @@ Each VM of the replica set uses raid0 to improve performance. We use 4 data disk
 
 1. SSH connect to primary node, execute below
   ```
-  $mongo -u "\<mongouser\>" -p "\<mongopassword\>" "admin"
+  $mongo -u "<mongouser>" -p "<mongopassword>" "admin"
 
   rs.status()
 
@@ -45,7 +45,7 @@ Each VM of the replica set uses raid0 to improve performance. We use 4 data disk
 
 2. You can also check the data replication status. SSH connect to primary node, execute below:
   ```
-  $mongo -u "\<mongouser\>" -p "\<mongopassword\>" "admin"
+  $mongo -u "<mongouser>" -p "<mongopassword>" "admin"
 
   use test
 
@@ -56,7 +56,7 @@ Each VM of the replica set uses raid0 to improve performance. We use 4 data disk
 
 - 2.1 SSH connect to secondary nodes, execute below
   ```
-  $mongo -u "\<mongouser\>" -p "\<mongopassword\>" "admin"
+  $mongo -u "<mongouser>" -p "<mongopassword>" "admin"
 
   use test
 
