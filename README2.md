@@ -31,39 +31,39 @@ Each VM of the shard uses raid0 to improve performance. The number and the size 
 ##After deployment, you can do below to verify if the sharding cluster really works or not:
 
 1. SSH connect to one of the router server, execute below:
-```
-$mongo -u "\<mongouser\>" -p "\<mongopassword\>" "admin"
+  ```
+  $mongo -u "\<mongouser\>" -p "\<mongopassword\>" "admin"
 
-db.runCommand( { listshards : 1 } )
+  db.runCommand( { listshards : 1 } )
 
-exit
-```
+  exit
+  ```
 
-Upper db.runCommand( { listshards : 1 } ) command will show the sharding cluster details. 
+  Upper db.runCommand( { listshards : 1 } ) command will show the sharding cluster details. 
 
 
 2. You can "shard" any database and collections you want. SSH connect to one of the router server, execute below:
-```
-$mongo -u "\<mongouser\>" -p "\<mongopassword\>" "admin"
+  ```
+  $mongo -u "\<mongouser\>" -p "\<mongopassword\>" "admin"
 
-db.runCommand({enableSharding: "\<database\>" })
+  db.runCommand({enableSharding: "\<database\>" })
 
-sh.status()
+  sh.status()
 
-sh.shardCollection("\<database\>.\<collection\>", shard-key-pattern)
+  sh.shardCollection("\<database\>.\<collection\>", shard-key-pattern)
 
-exit
-```
+  exit
+  ```
 
 
 3. You can add more shards into this sharding cluster. SSH connect to one of the router server, execute below:
-```
-$mongo -u "\<mongouser\>" -p "\<mongopassword\>" "admin"
+  ```
+  $mongo -u "\<mongouser\>" -p "\<mongopassword\>" "admin"
 
-sh.addShard("\<replica set name\>/\<primary ip\>:27017")   
+  sh.addShard("\<replica set name\>/\<primary ip\>:27017")   
 
-exit
-```
+  exit
+  ```
 
 Before adding your own replica set into the sharding cluster, you should enable internal authentication in your replica set first, and make sure the replica set is accessiable through this sharding cluster.
 
