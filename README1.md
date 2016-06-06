@@ -40,7 +40,7 @@ rs.status()
 exit
 ```
 
-Upper rs.status() command will show the replica set details. 
+  Upper rs.status() command will show the replica set details. 
 
 
 2. You can also check the data replication status. SSH connect to primary node, execute below:
