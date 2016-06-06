@@ -32,40 +32,40 @@ Each VM of the replica set uses raid0 to improve performance. We use 4 data disk
 ##After deployment, you can do below to verify if the replica set really works or not:
 
 1. SSH connect to primary node, execute below
-```
-$mongo -u "\<mongouser\>" -p "\<mongopassword\>" "admin"
+  ```
+  $mongo -u "\<mongouser\>" -p "\<mongopassword\>" "admin"
 
-rs.status()
+  rs.status()
 
-exit
-```
+  exit
+  ```
 
   Upper rs.status() command will show the replica set details. 
 
 
 2. You can also check the data replication status. SSH connect to primary node, execute below:
-```
-$mongo -u "\<mongouser\>" -p "\<mongopassword\>" "admin"
+  ```
+  $mongo -u "\<mongouser\>" -p "\<mongopassword\>" "admin"
 
-use test
+  use test
 
-db.mycol.insert({"title":"MongoDB Overview"})
+  db.mycol.insert({"title":"MongoDB Overview"})
 
-db.mycol.find()
-```
+  db.mycol.find()
+  ```
 
 - 2.1 SSH connect to secondary nodes, execute below
-```
-$mongo -u "\<mongouser\>" -p "\<mongopassword\>" "admin"
+  ```
+  $mongo -u "\<mongouser\>" -p "\<mongopassword\>" "admin"
 
-use test
+  use test
 
-db.getMongo().setSlaveOk()
+  db.getMongo().setSlaveOk()
 
-show collections
+  show collections
 
-db.mycol.find()
-```
+  db.mycol.find()
+  ```
 
 - 2.2 If db.mycol.find() command can show the result like primary node does, then means the replica set works.
 
